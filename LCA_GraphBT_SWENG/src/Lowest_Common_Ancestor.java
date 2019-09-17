@@ -13,5 +13,10 @@
 
 
 public class Lowest_Common_Ancestor {
+	
+	public static Node lca(Node root, int v1, int v2) {
+		
+	
+	}
 
 }

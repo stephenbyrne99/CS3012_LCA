@@ -2,10 +2,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class Lowest_Common_AncestorTest {
+class NodeTest {
 
 	@Test
-	void testTestRunning() {
+	void testRunning() {
 		assert(true);
 	}
 
