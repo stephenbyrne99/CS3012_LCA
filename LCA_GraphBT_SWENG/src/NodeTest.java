@@ -17,7 +17,7 @@ class NodeTest {
 	//constr1 tests
 	@Test
 	void testConstructorNoParameters() {
-		Node node1 = new Node();
+		Node node1 = new Node(0);
 		assertEquals(0, node1.getData());
 		assertEquals(null,node1.getLeft(), "created node.left not null");
 		assertEquals(null,node1.getRight(), "created node.right not null");

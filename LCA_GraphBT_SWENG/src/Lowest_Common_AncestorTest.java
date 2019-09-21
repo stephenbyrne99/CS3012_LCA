@@ -9,38 +9,87 @@ import org.junit.jupiter.api.Test;
 
 class Lowest_Common_AncestorTest {
 	
+	
 	Node head1 = generateKnownSampleTree1();
 
 	@Test
 	void testTestRunning() {
 		assert(true);
 	}
+
 	
-	//constructor tests
+//method tests ************************************************************************************************
+/*
+ * 	Tried to manually test possible solutions. 
+ * 	Left/Right means how deep left or right. LCA separates the two selected nodes.
+ * 	EG: Left Left <LCA> Right means down to nodes left and one on right. See visual graph drawn below at sample
+ * 	test 1.
+ */
 	
-	//method tests
+	/*
+	 * 	Test SAMPLE TREE 1 Test 1 
+	 * 	Left <LCA> Right 
+	 */
 	@Test
-	void testSolveKnownSampleTree1() {
+	void testSolveKnownSampleTree1Test1() {
 		
+		Node root = head1;
+		
+		int expected = 4;
+		int result = Lowest_Common_Ancestor.findLCA(root, 3, 8).getData();
+		assertEquals(expected,result);
 	}
+	
+	/*
+	 * 	Test SAMPLE TREE 1 Test 2
+	 * 	Left <LCA> Right Right
+	 */
+	@Test
+	void testSolveKnownSampleTree1Test2() {
+		
+		Node root = head1;
+		
+		int expected = 4;
+		int result = Lowest_Common_Ancestor.findLCA(root, 3, 13).getData();
+		assertEquals(expected,result);
+	}
+	
+	/*
+	 * 	Test SAMPLE TREE 1 Test 3
+	 * 	Right Left Right <LCA> Right Right
+	 */
+	@Test
+	void testSolveKnownSampleTree1Test3() {
+		
+		Node root = head1;
+		
+		int expected = 8;
+		int result = Lowest_Common_Ancestor.findLCA(root, 7, 13).getData();
+		assertEquals(expected,result);
+	}
+	
+	/*
+	 * 	Test SAMPLE TREE Error solutions
+	 * 	
+	 */
+	
 	
 	@Test
 	void testSolveRandomTreeList() {
 		
 	}
 	
+	
+	
+//test of class methods ******************************************************************************************
+	
+	
+//class methods **************************************************************************************************
+	
 	/*
-	@Test
-	void testSolveKnownSampleTree1() {
-		Node answer = Lowest_Common_Ancestor.findLCA(head1, 3, 8);
-		assertEquals(4, answer.getData());
-	}*/
-	
-	
-	//test of class methods
-	
-	
-	//class methods
+	 * 	Generates SAMPLE TREE 1 - KNOWN
+	 * 
+	 */
 	public Node generateKnownSampleTree1() {
 		/*
 		 * 			4
@@ -59,6 +108,12 @@ class Lowest_Common_AncestorTest {
 		Node four = new Node(4,three,eight);
 		return four;
 	}
+	
+	/*
+	 * 		Below is code to generate random trees [unfin] - not sure if will use as unsure how to verify 
+	 * 		LCA is correct.
+	 * 
+	 */
 	
 	//Generates arraylist of random trees, up to the size of the ammount
 	public ArrayList<Node> generateRandomTrees(int n){
@@ -111,19 +166,5 @@ class Lowest_Common_AncestorTest {
 		Node newNode = new Node(nodeNumber);
 		return newNode;
 	}
-	
-	//FROM GEEKSFORGEEKS-
-	// A utility function to do inorder  
-	// traversal of BST  
-	static void Inorder(Node root)  
-	{  
-	    if (root == null)  
-	        return;  
-	    else {  
-	        Inorder(root.getLeft());  
-	        System.out.print(root.getData() +" ");  
-	        Inorder(root.getRight());  
-	    }  
-	}  
 	
 }

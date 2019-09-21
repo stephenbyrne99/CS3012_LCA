@@ -14,7 +14,6 @@
 
 public class Lowest_Common_Ancestor {
 	
-	
 	/*
 	 * 	Method takes in a root of BST, and two values and returns the node that is the LCA
 	 */
@@ -23,6 +22,5 @@ public class Lowest_Common_Ancestor {
 		
 		return root;//return answer
 	}
-	
 	
 }
