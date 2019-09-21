@@ -14,9 +14,15 @@
 
 public class Lowest_Common_Ancestor {
 	
-	public static Node lca(Node root, int v1, int v2) {
-		
 	
+	/*
+	 * 	Method takes in a root of BST, and two values and returns the node that is the LCA
+	 */
+	public static Node findLCA(Node root, int v1, int v2) {
+		
+		
+		return root;//return answer
 	}
-
+	
+	
 }
