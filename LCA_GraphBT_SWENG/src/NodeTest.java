@@ -24,10 +24,17 @@ class NodeTest {
 	}
 	
 	//constr2 tests
-	
-	//constr3 tests
+	@Test
+	void testConstructorParameters() {
+		Node node1 = new Node(0,null,null);
+		assertEquals(0, node1.getData());
+		assertEquals(null,node1.getLeft(), "created node.left not null");
+		assertEquals(null,node1.getRight(), "created node.right not null");
+	}
+
 	
 	//method tests
+	//No need to test getters & setters.
 	
 	
 

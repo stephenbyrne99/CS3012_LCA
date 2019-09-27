@@ -16,6 +16,13 @@ class Lowest_Common_AncestorTest {
 	void testTestRunning() {
 		assert(true);
 	}
+	
+	@Test
+	void testCreateClassInstanceOfLCA() {
+		Lowest_Common_Ancestor lca = new Lowest_Common_Ancestor();
+		assertEquals(lca,lca);
+	}
+	
 
 	
 //method tests ************************************************************************************************
@@ -75,9 +82,33 @@ class Lowest_Common_AncestorTest {
 	
 	
 	@Test
+	void testNullRoot() {
+		Node root = null;
+		Node result =  Lowest_Common_Ancestor.findLCA(root, 7, 13);
+		assertEquals(null,result);
+	}
+	
+	@Test
+	void testValue1DoesntExist() {
+		
+	}
+	
+	@Test
+	void testValue2DoesntExist() {
+		
+	}
+	
+	
+	@Test
 	void testSolveRandomTreeList() {
 		
 	}
+	
+	/*
+	 * 		Test find path? may not be needed as private method.
+	 */
+	
+	
 	
 	
 	
@@ -130,7 +161,7 @@ class Lowest_Common_AncestorTest {
 	}
 	
 	/*
-	 * 	Generates random BST
+	 * 	Generates random BST 
 	 */
 	public Node generateRandomTree(int n) {
 		//catch 0
