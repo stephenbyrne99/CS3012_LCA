@@ -11,6 +11,7 @@ class Lowest_Common_AncestorTest {
 	
 	
 	Node head1 = generateKnownSampleTree1();
+	Node head2 = generateKnownSampleTree2();
 
 	@Test
 	void testTestRunning() {
@@ -76,9 +77,28 @@ class Lowest_Common_AncestorTest {
 	}
 	
 	/*
-	 * 	Test SAMPLE TREE Error solutions
+	 * 	Test SAMPLE TREE 2 for Error solutions - 1 : Where root is being asked for with another node
 	 * 	
 	 */
+	@Test
+	void testSolveKnownSampleTree2Test1() {
+		
+		Node root = head2;
+		int expected = 4;
+		int result = Lowest_Common_Ancestor.findLCA(root, 4, 8).getData();
+		assertEquals(expected,result);
+	}
+	
+	/*
+	 * 	Test SAMPLE TREE 2 for Error solutions - 2 : Where no answer
+	 * 	
+	 */
+	@Test
+	void testSolveKnownSampleTree2Test2() {
+		
+		Node root = head2;
+		assertEquals(null,Lowest_Common_Ancestor.findLCA(root, 15, 8));
+	}
 	
 	
 	@Test
@@ -137,6 +157,21 @@ class Lowest_Common_AncestorTest {
 		Node eight = new Node(8,six,thirteen);
 		Node three = new Node(3);
 		Node four = new Node(4,three,eight);
+		return four;
+	}
+	
+	/*
+	 * 	Generates SAMPLE TREE 2 - KNOWN
+	 * 
+	 */
+	public Node generateKnownSampleTree2() {
+		/*
+		 * 			4
+		 * 		     \
+		 * 		  	  8
+		 */
+		Node eight = new Node(8,null,null);
+		Node four = new Node(4,null,eight);
 		return four;
 	}
 	
