@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
  * 
  * 
@@ -6,22 +8,40 @@
 
 public class Node {
 	private int data;
-	private Node left;
-	private Node right;
-	
+	private int count;
+	private String colour;
+	private ArrayList<Node>nextNodes;
 	
 	//const1
 	public Node(int data) {
 		this.data = data;
-		this.left = null;
-		this.right = null;
+		this.count = 0;
+		this.colour = "white";
+		this.nextNodes = new ArrayList<Node>();
 	}
 	
 	//const2
-	public Node(int data, Node left, Node right) {
+	public Node(int data, ArrayList<Node>nextNodes) {
 		this.data = data;
-		this.left = left;
-		this.right = right;
+		this.nextNodes = nextNodes;
+		this.count = 0;
+		this.colour = "white";
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public String getColour() {
+		return colour;
+	}
+
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 
 	public int getData() {
@@ -31,22 +51,25 @@ public class Node {
 	public void setData(int data) {
 		this.data = data;
 	}
-
-	public Node getLeft() {
-		return left;
-	}
-
-	public void setLeft(Node left) {
-		this.left = left;
-	}
-
-	public Node getRight() {
-		return right;
-	}
-
-	public void setRight(Node right) {
-		this.right = right;
-	}
 	
+	public ArrayList<Node> getNextNodes() {
+		return nextNodes;
+	}
+
+	public void setNextNodes(ArrayList<Node> nextNodes) {
+		this.nextNodes = nextNodes;
+	}
+
+	public int getNextNodseSize() {
+		return nextNodes.size();
+	}
+
+	
+	public Node getNextNodesGetNodeAtIndex(int index) {
+		if(index < nextNodes.size()) {
+			return nextNodes.get(index);
+		}
+		return null;
+	}
 	
 }
