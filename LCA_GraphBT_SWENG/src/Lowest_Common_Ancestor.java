@@ -11,18 +11,31 @@ import java.util.ArrayList;
  * 		push the limits of your solution, enhancing your solution to deal with these.
  */
 
+//
+/*
+ * 	Methods will initially assume correct DAG with each parent only having two child nodes,
+ *  may be extended for multiple or error cases (not dags) and to still work on BSTs?
+ * 
+ */
 
 
 public class Lowest_Common_Ancestor {
 	
 	/*
 	 * 	Method takes in a root of DAG, and two values and returns the node that is the LCA
+	 * 	-From research: most algorithims use a BFS so make and test this.
 	 */
 	public static Node findLCA(Node root, int v1, int v2) {
 		/*
 		 * Implement algorithim
 		 */
 		return null;
+	}
+	
+	//can adapt this to find nodes etc.
+	public static void printTraversalBFS() {
+		
+		
 	}
 
      

@@ -34,6 +34,18 @@ class Lowest_Common_AncestorTest {
 		assertEquals(9,result.getData());
 	}
 	
+	@Test 
+	void testPrintTraversalBFSNormalCase() {
+		Node root = generateDAG1();
+		
+	}
+	
+	//error cases
+	@Test 
+	void testPrintTraversalBFSNull() {
+		
+	}
+	
 	
 //Generate Tree methods
 	

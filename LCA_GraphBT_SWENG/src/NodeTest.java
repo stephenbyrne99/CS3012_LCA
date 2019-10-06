@@ -1,10 +1,12 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 
 /*
- * 	Probably overkill testing these so thoroughly but doing it to revise j unit tests before writing LCA tests.
+ * 	
  * 
  */
 class NodeTest {
@@ -14,27 +16,29 @@ class NodeTest {
 		assert(true);
 	}
 	
-	//constr1 tests
-	@Test
-	void testConstructorNoParameters() {
-		Node node1 = new Node(0);
-		assertEquals(0, node1.getData());
-		assertEquals(null,node1.getLeft(), "created node.left not null");
-		assertEquals(null,node1.getRight(), "created node.right not null");
+	//Method tests
+	@Test 
+	void testGetNodesWhenNoNodesExist(){
+		Node one = new Node(1);
+		assertEquals(one.getNextNodes(), new ArrayList<Node>());
 	}
 	
-	//constr2 tests
 	@Test
-	void testConstructorParameters() {
-		Node node1 = new Node(0,null,null);
-		assertEquals(0, node1.getData());
-		assertEquals(null,node1.getLeft(), "created node.left not null");
-		assertEquals(null,node1.getRight(), "created node.right not null");
+	void testGetNextNodesGetNodeAtIndex() {
+		Node one = new Node(1);
+		Node two = new Node(2);
+		one.getNextNodes().add(two);
+		assertEquals(one.getNextNodesGetNodeAtIndex(0),two);
 	}
-
 	
-	//method tests
-	//No need to test getters & setters.
+	@Test
+	void testGetNextNodesGetNodeAtIndexOutOfBounds() {
+		Node one = new Node(1);
+		Node two = new Node(2);
+		one.getNextNodes().add(two);
+		assertEquals(one.getNextNodesGetNodeAtIndex(1),null);
+	}
+	
 	
 	
 
