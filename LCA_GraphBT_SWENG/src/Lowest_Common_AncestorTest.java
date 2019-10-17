@@ -25,11 +25,16 @@ class Lowest_Common_AncestorTest {
 		assertEquals(test,test);
 	}
 	
+
 	@Test
 	void testAddValidEdge() {
 		DAG test = new DAG(3);
 		assertEquals(test.addEdge(0, 1),true);
 		assertEquals(test.addEdge(0, 2),true);
+		
+		//opposite direction
+		boolean loopAdded2 = test.addEdge(1, 0);
+		assertEquals(loopAdded2,true);
 	}
 	
 	@Test
@@ -39,6 +44,65 @@ class Lowest_Common_AncestorTest {
 		assertEquals(test.addEdge(0, 4),false);
 		assertEquals(test.addEdge(4, 1),false);
 		assertEquals(test.addEdge(3, 2),false);
+		
+		//selfloop test
+		boolean loopAdded1 = test.addEdge(1, 1);
+		assertEquals(false,loopAdded1);
+	}
+	
+
+	@Test 
+	void getEdge() {
+		DAG test = new DAG(3);
+		assertEquals(test.E(),0);
+		test.addEdge(1, 2);
+		assertEquals(test.E(), 1);
+	}
+	
+	//Nodes adj lists
+	@Test
+	void getAdj() {
+		DAG test = new DAG(3);
+		test.addEdge(0, 1);
+		test.addEdge(0, 2);
+		
+		ArrayList<Integer> adj = test.adj(0);
+		System.out.print(adj.toString());
+		
+		ArrayList<Integer> expected = new  ArrayList<Integer>();
+		expected.add(1);
+		expected.add(2);
+		assertEquals(adj.toString(),expected.toString());
+	}
+	
+	@Test
+	void testGetV() {
+		DAG test = new DAG(3);
+		assertEquals(test.V(),3);
+	}
+	
+	@Test
+	void testReverseDAG() {
+	
+		DAG test = new DAG(5);
+		test.addEdge(0, 1);
+		test.addEdge(1, 2);
+		test.addEdge(2, 3);
+		test.addEdge(3, 4);
+		
+		DAG revActual = test.reverse();
+		
+		DAG revExpected = new DAG(5);
+		revExpected.addEdge(4, 3);
+		revExpected.addEdge(3, 2);
+		revExpected.addEdge(2, 1);
+		revExpected.addEdge(1, 0);
+		
+		//System.out.println(revExpected.BFS(4).toString() + "/" + revActual.BFS(4).toString());
+		
+		assertEquals(revExpected.BFS(4).toString(),revActual.BFS(4).toString());
+		
+		
 	}
 	
 	@Test
@@ -54,7 +118,16 @@ class Lowest_Common_AncestorTest {
 		assertEquals(expectedResult,actualResult);
 		
 		//test stright line
-		
+		//test straight line
+		DAG test2 = new DAG(5);
+		test2.addEdge(0, 1);
+		test2.addEdge(1, 2);
+		test2.addEdge(2, 3);
+		test2.addEdge(3, 4);
+		int expectedResult2 = 1;
+		int actualResult2 = test2.LCA(1, 2);
+		assertEquals(expectedResult2,actualResult2);
+
 		//test empty with indexes out of bounds
 		DAG testEmpty = new DAG(0);
 		assertEquals(testEmpty.LCA(1, 2),-1); 
@@ -97,7 +170,7 @@ class Lowest_Common_AncestorTest {
 	}
 	
 	
-	//error cases
+	//other error cases
 	@Test 
 	void testPrintTraversalBFSNull() {
 		DAG test = new DAG(3);

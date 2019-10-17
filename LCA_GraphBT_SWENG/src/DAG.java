@@ -20,11 +20,11 @@ public class DAG {
 	
 	public boolean addEdge(int v, int w) {
 		if( v==w) return false;
-		//ADD CHECK FOR CYCLE FIRST -> NOT SELF LOOPS AND !PATH W->V
+		//ADD CHECK FOR CYCLE FIRST -> NOT SELF LOOPS(done) AND !PATH W->V?
 		
 		if(validVertex(v) && validVertex(w)) {
-			adj[v].add(w);
-			E++;
+			this.adj[v].add(w);
+			this.E++;
 			return true;
 		}
 		else {
@@ -38,9 +38,12 @@ public class DAG {
 	}
 	
 	public int V(){
-		return V;
+		return this.V;
 	}
 
+	public int E() {
+		return this.E;
+	}
 	public ArrayList<Integer> adj(int v)
 	{ 
 		return adj[v]; 
@@ -81,7 +84,7 @@ public class DAG {
         }
         return rev;
     }
-	
+
 	public int LCA(int v, int w) {
 
 		if (!validVertex(w)|| !validVertex(v)) {
