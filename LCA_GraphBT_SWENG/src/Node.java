@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
  * 
  * 
@@ -6,23 +8,20 @@
 
 public class Node {
 	private int data;
-	private Node left;
-	private Node right;
-	
+	private ArrayList<Node>nextNodes;
 	
 	//const1
 	public Node(int data) {
 		this.data = data;
-		this.left = null;
-		this.right = null;
+		this.nextNodes = new ArrayList<Node>();
 	}
 	
 	//const2
-	public Node(int data, Node left, Node right) {
+	public Node(int data, ArrayList<Node>nextNodes) {
 		this.data = data;
-		this.left = left;
-		this.right = right;
+		this.nextNodes = nextNodes;
 	}
+	
 
 	public int getData() {
 		return data;
@@ -31,22 +30,27 @@ public class Node {
 	public void setData(int data) {
 		this.data = data;
 	}
-
-	public Node getLeft() {
-		return left;
+	
+	public ArrayList<Node> getNextNodes() {
+		return nextNodes;
 	}
 
-	public void setLeft(Node left) {
-		this.left = left;
+	public void setNextNodes(ArrayList<Node> nextNodes) {
+		this.nextNodes = nextNodes;
+	}
+/*
+	public int getNextNodseSize() {
+		return nextNodes.size();
 	}
 
-	public Node getRight() {
-		return right;
-	}
-
-	public void setRight(Node right) {
-		this.right = right;
+	
+	public Node getNextNodesGetNodeAtIndex(int index) {
+		if(index < nextNodes.size()) {
+			return nextNodes.get(index);
+		}
+		return null;
 	}
 	
+*/
 	
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Lowest_Common_Ancestor {
 	
 	private static ArrayList<Node> path1 = new ArrayList<>(); 
-    private static ArrayList<Node> path2 = new ArrayList<>(); 
+   	private static ArrayList<Node> path2 = new ArrayList<>(); 
 	
 	/*
 	 * 	Method takes in a root of BST, and two values and returns the node that is the LCA
@@ -71,7 +71,5 @@ public class Lowest_Common_Ancestor {
   
         return false; 
     } 
-	
-	
 	
 }
