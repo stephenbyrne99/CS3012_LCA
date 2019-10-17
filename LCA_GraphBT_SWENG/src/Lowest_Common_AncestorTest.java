@@ -48,6 +48,8 @@ class Lowest_Common_AncestorTest {
 		//selfloop test
 		boolean loopAdded1 = test.addEdge(1, 1);
 		assertEquals(false,loopAdded1);
+		
+		//test for non self loop cycle?
 	}
 	
 
@@ -59,7 +61,6 @@ class Lowest_Common_AncestorTest {
 		assertEquals(test.E(), 1);
 	}
 	
-	//Nodes adj lists
 	@Test
 	void getAdj() {
 		DAG test = new DAG(3);
