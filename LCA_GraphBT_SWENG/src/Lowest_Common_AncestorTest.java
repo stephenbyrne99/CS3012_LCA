@@ -230,11 +230,6 @@ class Lowest_Common_AncestorTest {
 		assertEquals(null,result);
 	}
 	
-	@Test
-	void testCreateClassInstanceOfLCA() {
-		Lowest_Common_Ancestor lca = new Lowest_Common_Ancestor();
-		assertEquals(lca,lca);
-	}
 	
 	/*
 	 * 	Test SAMPLE TREE 1 Test 1 

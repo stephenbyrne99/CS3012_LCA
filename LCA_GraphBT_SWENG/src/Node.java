@@ -8,18 +8,21 @@ import java.util.ArrayList;
 
 public class Node {
 	private int data;
-	private ArrayList<Node>nextNodes;
+	private Node left;
+	private Node right;
 	
 	//const1
 	public Node(int data) {
 		this.data = data;
-		this.nextNodes = new ArrayList<Node>();
+		this.left = null;
+		this.right = null;
 	}
 	
 	//const2
-	public Node(int data, ArrayList<Node>nextNodes) {
+	public Node(int data, Node left, Node right) {
 		this.data = data;
-		this.nextNodes = nextNodes;
+		this.left=left;
+		this.right = right;
 	}
 	
 
@@ -31,12 +34,12 @@ public class Node {
 		this.data = data;
 	}
 	
-	public ArrayList<Node> getNextNodes() {
-		return nextNodes;
+	public Node getLeft() {
+		return this.left;
 	}
 
-	public void setNextNodes(ArrayList<Node> nextNodes) {
-		this.nextNodes = nextNodes;
+	public Node getRight() {
+		return this.right;
 	}
 /*
 	public int getNextNodseSize() {
